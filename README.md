@@ -24,3 +24,9 @@ git clone https://github.com/nivaldojunior037/Atividade-10-02-EmbarcaTech
 #### Link do vídeo
 
 Segue o link do Drive com o vídeo onde é demonstrada a utilização do código: https://drive.google.com/drive/folders/1dYV0IJeQRpKGUEiStQvewQ0GKkADP9aX?usp=sharing
+
+##### IMPORTANTE
+
+É possível ver no código, na definição das constantes, que o potenciômetro do eixo X do joystick está conectado à porta GPIO 27, enquanto o do eixo Y está na GPIO 26. Isso foi um ponto que dificultou a execução do código, baseado na explicação dada onde o eixo X estaria na porta 26 e o eixo Y estaria na porta 27. Considerando a explicação dada, os eixos ficaram invertidos, caso que só foi resolvido com a troca das portas GPIO. 
+
+Caso em seu dispositivo BitDogLab a movimentação do quadrado no display esteja com eixos invertidos, vá até o arquivo AtvADC.c e troque #define VRX_PIN 27  e #define VRY_PIN 26 por #define VRX_PIN 26 e #define VRY_PIN 27, nas linhas 22 e 23 do código. Além disso, troque, na linha 109, adc_select_input(1) por adc_select_input(0). Faça o processo inverso na linha 131. Isso deve garantir a correção dos eixos para o seu caso.
